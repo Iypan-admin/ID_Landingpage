@@ -55,16 +55,22 @@ export default function CtaSection({ onApply }: CtaSectionProps) {
               >
                 Apply Now
               </button>
-              <button 
+              <a 
+                href="https://wa.me/917338881781"
+                target="_blank"
                 className="btn-secondary" 
                 style={{ 
                   background: "rgba(255,255,255,0.1)", color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.3)", 
                   padding: "18px 48px", fontSize: 17, fontWeight: 800,
-                  backdropFilter: "blur(10px)"
+                  backdropFilter: "blur(10px)",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center"
                 }}
               >
                 Contact Us
-              </button>
+              </a>
             </div>
           </div>
         </div>

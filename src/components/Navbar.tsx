@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Learning Modes", href: "#modes" },
   { label: "Why ISML", href: "#why" },
   { label: "Journey", href: "#journey" },
+  { label: "Contact Us", href: "https://wa.me/917338881781", isExternal: true },
 ];
 
 interface NavbarProps {
@@ -61,7 +62,10 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
         <nav className="desktop-nav" style={{ display: "flex", gap: 8 }}>
           {navLinks.map((l) => (
             <a 
-              key={l.href} href={l.href} 
+              key={l.href} 
+              href={l.href} 
+              target={l.isExternal ? "_blank" : undefined}
+              rel={l.isExternal ? "noopener noreferrer" : undefined}
               style={{ 
                 padding: "10px 18px", borderRadius: 50, fontSize: 14, fontWeight: 600, 
                 color: "#475569", textDecoration: "none", transition: "all 0.25s" 
@@ -102,7 +106,14 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
           display: "flex", flexDirection: "column", gap: 16
         }}>
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)} style={{ fontSize: 16, fontWeight: 600, color: "#0F172A", textDecoration: "none" }}>
+            <a 
+              key={l.href} 
+              href={l.href} 
+              target={l.isExternal ? "_blank" : undefined}
+              rel={l.isExternal ? "noopener noreferrer" : undefined}
+              onClick={() => setMenuOpen(false)} 
+              style={{ fontSize: 16, fontWeight: 600, color: "#0F172A", textDecoration: "none" }}
+            >
               {l.label}
             </a>
           ))}
