@@ -7,19 +7,23 @@ export default function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 60, marginBottom: 60 }}>
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
-              {/* Real Logo Image */}
+          <div>
+            <div style={{ marginBottom: 24 }}>
+              {/* Professional Logo Display */}
               <img 
                 src="/logo.png" 
-                alt="ISML Logo" 
-                style={{ width: 44, height: 44, borderRadius: 10, objectFit: 'contain', background: '#fff', padding: 2 }} 
+                alt="Indian School for Modern Languages" 
+                style={{ 
+                  height: 60, 
+                  width: "auto", 
+                  objectFit: "contain",
+                  background: "#fff",
+                  padding: "4px",
+                  borderRadius: "12px"
+                }} 
               />
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <span style={{ fontSize: 18, fontWeight: 900, color: "#FFFFFF", lineHeight: 1.1 }}>ISML</span>
-                <span style={{ fontSize: 9, fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.05em" }}>INDIAN SCHOOL FOR MODERN LANGUAGES</span>
-              </div>
             </div>
-            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, maxWidth: 300 }}>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, maxWidth: 320 }}>
               The premium International Diploma (ID) program by the Indian School for Modern Languages (ISML). Immersive education for a global future.
             </p>
           </div>

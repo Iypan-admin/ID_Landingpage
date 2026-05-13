@@ -36,21 +36,18 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
       }}
     >
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
-          {/* Real Logo Image */}
+        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          {/* Professional Logo Display */}
           <img 
             src="/logo.png" 
-            alt="ISML Logo" 
-            style={{ width: 48, height: 48, borderRadius: 12, objectFit: 'contain' }} 
+            alt="Indian School for Modern Languages" 
+            style={{ 
+              height: scrolled ? 54 : 64, 
+              width: "auto", 
+              transition: "all 0.4s ease",
+              objectFit: "contain"
+            }} 
           />
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 18, fontWeight: 900, color: "#0F172A", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
-              Indian School for <br /> Modern Languages
-            </span>
-            <span style={{ fontSize: 10, fontWeight: 700, color: "#4F6FE8", letterSpacing: "0.05em", marginTop: 2 }}>
-              INTERNATIONAL DIPLOMA (ID)
-            </span>
-          </div>
         </a>
 
         <nav className="desktop-nav" style={{ display: "flex", gap: 8 }}>
