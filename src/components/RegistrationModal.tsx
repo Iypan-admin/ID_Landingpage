@@ -26,11 +26,42 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    alert("Thank you for your registration! Our team will contact you soon.");
-    onClose();
+    
+    // Create data object that matches Google Sheet headers
+    const dataToSave = {
+      data: [{
+        Date: new Date().toLocaleString(),
+        Name: formData.name,
+        Email: formData.email,
+        Phone: formData.phone,
+        Language: formData.language,
+        Level: formData.level
+      }]
+    };
+
+    try {
+      const response = await fetch('https://sheetdb.io/api/v1/y4odbljzg3dxt', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataToSave)
+      });
+
+      if (response.ok) {
+        alert("Success! Your registration has been saved. Our team will contact you soon.");
+        setFormData({ name: "", email: "", phone: "", language: "", level: "" });
+        onClose();
+      } else {
+        throw new Error('Failed to save data');
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again or contact us directly.");
+    }
   };
 
   return (
