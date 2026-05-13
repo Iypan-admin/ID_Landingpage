@@ -46,7 +46,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
           <div className="hero-text-content">
             <div className="animate-fade-in-up" style={{ marginBottom: 20 }}>
               <span className="badge" style={{ fontSize: 12, background: "rgba(79,111,232,0.06)", color: "#4F6FE8", border: "1px solid rgba(79,111,232,0.15)", padding: "6px 14px" }}>
-                ✨ International Diploma Program by ISML
+                ✨ Indian School for Modern Languages (ISML)
               </span>
             </div>
 
