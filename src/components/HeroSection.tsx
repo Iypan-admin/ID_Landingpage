@@ -93,6 +93,38 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
                 Explore Programs
               </a>
             </div>
+
+            {/* Upcoming Demo Schedule Card */}
+            <div className="animate-fade-in-up delay-500" style={{ marginTop: 40 }}>
+              <div style={{ 
+                background: "#FFFFFF", 
+                border: "1px solid rgba(79,111,232,0.15)", 
+                borderRadius: 24, 
+                padding: "24px", 
+                boxShadow: "0 10px 40px rgba(79,111,232,0.06)",
+                maxWidth: 480
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#10B981", boxShadow: "0 0 8px #10B981" }}></div>
+                  <span style={{ fontSize: 13, fontWeight: 700, color: "#10B981", textTransform: "uppercase", letterSpacing: "0.05em" }}>Upcoming Live Demos</span>
+                </div>
+                
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+                  <div style={{ background: "#F8FAFF", padding: "12px", borderRadius: 16, textAlign: "center" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#64748B", marginBottom: 4 }}>SUN (11am)</div>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: "#4F6FE8" }}>🇫🇷 French</div>
+                  </div>
+                  <div style={{ background: "#F8FAFF", padding: "12px", borderRadius: 16, textAlign: "center" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#64748B", marginBottom: 4 }}>TUE (7pm)</div>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: "#38BDF8" }}>🇯🇵 Japanese</div>
+                  </div>
+                  <div style={{ background: "#F8FAFF", padding: "12px", borderRadius: 16, textAlign: "center" }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#64748B", marginBottom: 4 }}>WED (6pm)</div>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: "#7C5CFC" }}>🇩🇪 German</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right: Clean, Instant-Understand Visual */}
