@@ -138,7 +138,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
                     value={formData.level}
                     onChange={(e) => setFormData({...formData, level: e.target.value})}
                   >
-                    <option value="">{formData.language ? "Choose Level" : "Pick language first"}</option>
+                    <option value="">Choose Level</option>
                     <option value="beginner">Beginner (A1/N5)</option>
                     <option value="elementary">Elementary (A2/N4)</option>
                     <option value="intermediate">Intermediate (B1/N3)</option>
@@ -147,12 +147,14 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
                 </div>
               </div>
 
-              <button type="submit" className="submit-btn">
-                Register Now
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </button>
+              <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 8 }}>
+                <button type="submit" className="submit-btn" style={{ width: '100%', maxWidth: 280 }}>
+                  Register Now
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
 
               <p className="form-footer">
                 By proceeding, you agree to our Privacy Policy and Terms & Conditions.

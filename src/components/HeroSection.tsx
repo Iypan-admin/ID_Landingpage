@@ -111,7 +111,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
                 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
                   <div style={{ background: "#F8FAFF", padding: "12px", borderRadius: 16, textAlign: "center" }}>
-                    <div style={{ fontSize: 11, fontWeight: 700, color: "#64748B", marginBottom: 4 }}>SUN (11am)</div>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: "#64748B", marginBottom: 4 }}>SUN (2pm)</div>
                     <div style={{ fontSize: 14, fontWeight: 800, color: "#4F6FE8" }}>🇫🇷 French</div>
                   </div>
                   <div style={{ background: "#F8FAFF", padding: "12px", borderRadius: 16, textAlign: "center" }}>
