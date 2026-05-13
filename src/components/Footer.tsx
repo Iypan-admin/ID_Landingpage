@@ -7,7 +7,6 @@ export default function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 60, marginBottom: 60 }}>
           {/* Brand */}
           <div>
-          <div>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
               {/* Real Logo Image */}
               <img 
