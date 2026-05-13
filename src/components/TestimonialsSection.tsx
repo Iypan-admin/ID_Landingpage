@@ -2,192 +2,162 @@
 
 const testimonials = [
   {
-    name: "Arjun Kumar",
-    role: "ID Fast Track Graduate",
-    quote: "The 5-day intensive program was exactly what I needed. I cleared my Goethe B1 exam in record time thanks to the constant immersion at ISML.",
-    avatar: "AK",
-    lang: "German",
-    color: "#7C5CFC",
-    lightBg: "#F5F3FF"
-  },
-  {
-    name: "Priya Sharma",
-    role: "ID Regular Student",
-    quote: "Being a working professional, the 2-day weekly schedule is perfect. The trainers at ISML focus so much on speaking that I already feel confident in French.",
-    avatar: "PS",
+    name: "Swetha Venkat",
     lang: "French",
+    quote: "I joined ISML, and trust me—this is the best institute to learn a foreign language. My trainer, Mr. Claude Sir, is the best teacher because he has so much patience. Even if we didn't understand the topic well, he would reteach it without hesitation. The best part about this institution is their constant support—no matter what the doubt is, they always take time to clarify. I'm truly happy to have joined here.",
     color: "#4F6FE8",
     lightBg: "#F0F4FF"
   },
   {
-    name: "Rahul V.",
-    role: "JLPT N3 Candidate",
-    quote: "ISML's approach to Japanese is unique. They don't just teach kanji; they teach you how to think in Japanese. The immersion workshops are life-changing.",
-    avatar: "RV",
-    lang: "Japanese",
+    name: "Chitransha Tanwar",
+    lang: "French",
+    quote: "The teachers at ISML are the best—they truly understand you and work with you patiently. I've been taking French classes and have successfully completed A1 level so far. It's been a fantastic journey with ISML, and I'm grateful for the support and guidance they've given me. Thank you so much, ISML!",
+    color: "#7C5CFC",
+    lightBg: "#F5F3FF"
+  },
+  {
+    name: "Cris Joy",
+    lang: "German",
+    quote: "Spending six months in the German class was one of the best experiences of my life. Arjun Sir, though young, was incredibly patient and knowledgeable—his simple, effective methods made even complex grammar easy to grasp. The flexible timings fit our schedules perfectly, and the friendly, supportive classmates made learning even more enjoyable. Totally worth it! I highly recommend this institute to anyone wanting to learn German in a warm, positive setting.",
     color: "#0284C7",
     lightBg: "#F0F9FF"
+  },
+  {
+    name: "Nithish Raghavendar T K",
+    lang: "Japanese",
+    quote: "I had a great experience at ISML. The teachers are very helpful, and learning from native Japanese speakers made the process more natural. The lessons were well-planned and focused on speaking, listening, and real-life situations. The study materials and practice sessions were very effective. The training truly helped me prepare for the JLPT exams. Overall, it’s a great place to learn Japanese—I highly recommend it!",
+    color: "#10B981",
+    lightBg: "#ECFDF5"
   }
 ];
 
 export default function TestimonialsSection() {
+  // Triple the items to ensure smooth infinite scroll even on wide screens
+  const scrollItems = [...testimonials, ...testimonials, ...testimonials];
+
   return (
-    <section id="testimonials" className="section-padding" style={{ background: "#FFFFFF" }}>
+    <section id="testimonials" className="section-padding" style={{ background: "#FFFFFF", overflow: "hidden" }}>
       <div className="container">
-        <div style={{ textAlign: "center", marginBottom: "clamp(48px, 8vw, 72px)" }}>
-          <div className="section-tag animate-fade-in-up"><span>💬</span> Success Stories</div>
+        <div style={{ textAlign: "center", marginBottom: 60 }}>
+          <div className="section-tag animate-fade-in-up"><span>💬</span> Student Reviews</div>
           <h2 className="animate-fade-in-up delay-100" style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#0F172A", marginBottom: 20 }}>
-            Hear From Our <span className="gradient-text">Students</span>
+            Success Stories from <span className="gradient-text">Our Students</span>
           </h2>
           <p className="animate-fade-in-up delay-200" style={{ fontSize: "clamp(16px, 1.2vw, 18px)", color: "var(--color-text-secondary)", maxWidth: 650, margin: "0 auto" }}>
-            Real stories from our students who achieved their global certification goals with ISML.
+            Real experiences from students who have transformed their language skills at the Indian School for Modern Languages.
           </p>
         </div>
+      </div>
 
-        <div className="testimonial-grid">
-          {testimonials.map((t, i) => (
+      {/* Infinite Scroll Carousel */}
+      <div className="carousel-container">
+        <div className="carousel-track">
+          {scrollItems.map((t, i) => (
             <div 
               key={i} 
-              className="animate-fade-in-up testimonial-card"
+              className="testimonial-card"
               style={{ 
-                animationDelay: `${0.1 * i}s`,
                 background: `linear-gradient(135deg, #FFFFFF 0%, ${t.lightBg} 100%)`,
                 border: `1px solid ${t.color}20`
               }}
             >
-              <div className="quote-icon" style={{ color: `${t.color}20` }}>"</div>
+              <div className="quote-icon" style={{ color: `${t.color}15` }}>"</div>
               
-              <div className="rating-stars">
-                {[1, 2, 3, 4, 5].map(star => (
-                  <span key={star} style={{ color: "#FBBF24" }}>★</span>
-                ))}
-              </div>
-
-              <p className="testimonial-quote">
-                {t.quote}
-              </p>
-
-              <div className="student-profile">
-                <div className="student-avatar" style={{ background: t.color }}>
-                  {t.avatar}
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
+                <div style={{ 
+                  width: 48, height: 48, borderRadius: 14, background: t.color, 
+                  color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 20, fontWeight: 800, boxShadow: `0 8px 20px ${t.color}30`
+                }}>
+                  {t.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="student-name">{t.name}</div>
-                  <div className="student-role" style={{ color: t.color }}>{t.role}</div>
+                  <div style={{ fontWeight: 800, color: "#0F172A", fontSize: 16 }}>{t.name}</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: t.color }}>{t.lang} Student</div>
+                </div>
+                <div style={{ marginLeft: "auto", display: "flex", gap: 2 }}>
+                  {[1,2,3,4,5].map(s => <span key={s} style={{ color: "#FBBF24", fontSize: 14 }}>★</span>)}
                 </div>
               </div>
 
-              <div className="lang-tag-footer" style={{ background: `${t.color}10`, color: t.color }}>
-                {t.lang.toUpperCase()} PROGRAM
+              <p style={{ 
+                fontSize: 15, color: "#475569", lineHeight: 1.7, 
+                fontStyle: "italic", margin: 0, position: "relative", zIndex: 2 
+              }}>
+                "{t.quote}"
+              </p>
+
+              <div style={{ 
+                position: "absolute", bottom: 0, right: 0, padding: "6px 16px", 
+                background: `${t.color}15`, color: t.color, fontSize: 10, 
+                fontWeight: 800, borderTopLeftRadius: 16, letterSpacing: "0.05em"
+              }}>
+                {t.lang.toUpperCase()}
               </div>
             </div>
           ))}
         </div>
       </div>
+
       <style>{`
-        .testimonial-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        .carousel-container {
+          width: 100%;
+          padding: 20px 0 60px;
+          position: relative;
+        }
+
+        .carousel-track {
+          display: flex;
           gap: 32px;
+          width: max-content;
+          animation: scroll 80s linear infinite;
+        }
+
+        .carousel-track:hover {
+          animation-play-state: paused;
         }
 
         .testimonial-card {
+          width: 400px;
+          flex-shrink: 0;
           padding: 40px;
-          border-radius: 40px;
+          border-radius: 32px;
           position: relative;
-          display: flex;
-          flex-direction: column;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+          transition: all 0.4s ease;
           overflow: hidden;
         }
 
         .testimonial-card:hover {
-          transform: translateY(-12px);
-          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
-          border-color: rgba(0,0,0,0.1) !important;
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+          border-color: rgba(0, 0, 0, 0.1) !important;
         }
 
         .quote-icon {
           position: absolute;
-          top: -10px;
+          top: -20px;
           right: 20px;
-          font-size: 120px;
+          font-size: 140px;
           font-family: serif;
           line-height: 1;
           pointer-events: none;
           z-index: 1;
         }
 
-        .rating-stars {
-          margin-bottom: 20px;
-          font-size: 18px;
-          position: relative;
-          z-index: 2;
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-432px * ${testimonials.length})); }
         }
 
-        .testimonial-quote {
-          font-size: 16px;
-          color: #475569;
-          line-height: 1.8;
-          font-style: italic;
-          margin-bottom: 32px;
-          position: relative;
-          z-index: 2;
-        }
-
-        .student-profile {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          margin-top: auto;
-          position: relative;
-          z-index: 2;
-        }
-
-        .student-avatar {
-          width: 52px;
-          height: 52px;
-          border-radius: 18px;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 800;
-          font-size: 18px;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .student-name {
-          font-weight: 800;
-          color: #0F172A;
-          font-size: 16px;
-          margin-bottom: 2px;
-        }
-
-        .student-role {
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: -0.01em;
-        }
-
-        .lang-tag-footer {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          padding: 8px 20px;
-          border-top-left-radius: 24px;
-          font-size: 10px;
-          font-weight: 900;
-          letter-spacing: 0.1em;
-        }
-
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .testimonial-card {
+            width: 320px;
             padding: 32px 24px;
           }
-          .quote-icon {
-            font-size: 80px;
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-352px * ${testimonials.length})); }
           }
         }
       `}</style>
