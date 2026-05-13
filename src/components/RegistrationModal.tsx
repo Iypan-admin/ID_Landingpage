@@ -7,6 +7,7 @@ interface RegistrationModalProps {
 }
 
 export default function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,6 +15,13 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
     language: "",
     level: ""
   });
+
+  // Reset submitted state when modal closes
+  useEffect(() => {
+    if (!isOpen) {
+      setTimeout(() => setSubmitted(false), 300);
+    }
+  }, [isOpen]);
 
   // Close on ESC key
   useEffect(() => {
@@ -29,7 +37,6 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create data object that matches Google Sheet headers
     const dataToSave = {
       data: [{
         Date: new Date().toLocaleString(),
@@ -52,15 +59,14 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
       });
 
       if (response.ok) {
-        alert("Success! Your registration has been saved. Our team will contact you soon.");
+        setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", language: "", level: "" });
-        onClose();
       } else {
         throw new Error('Failed to save data');
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Something went wrong. Please try again or contact us directly.");
+      alert("Something went wrong. Please try again.");
     }
   };
 
@@ -69,87 +75,114 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>&times;</button>
         
-        <div className="form-header">
-          <h2>Registration Form</h2>
-          <p>All fields are required · Takes 60 seconds</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="registration-form">
-          <div className="form-group">
-            <label>FULL NAME</label>
-            <input 
-              type="text" 
-              placeholder="e.g. Priya Sharma" 
-              required 
-              value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>EMAIL ADDRESS</label>
-            <input 
-              type="email" 
-              placeholder="you@example.com" 
-              required 
-              value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>PHONE NUMBER</label>
-            <input 
-              type="tel" 
-              placeholder="10-digit mobile number" 
-              pattern="[0-9]{10}" 
-              required 
-              value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            />
-          </div>
-
-          <div className="form-row">
-            <div className="form-group">
-              <label>PICK LANGUAGES</label>
-              <select 
-                required 
-                value={formData.language}
-                onChange={(e) => setFormData({...formData, language: e.target.value})}
-              >
-                <option value="">Pick Languages</option>
-                <option value="french">French</option>
-                <option value="german">German</option>
-                <option value="japanese">Japanese</option>
-              </select>
+        {!submitted ? (
+          <>
+            <div className="form-header">
+              <h2>Registration Form</h2>
+              <p>All fields are required · Takes 60 seconds</p>
             </div>
-            <div className="form-group">
-              <label>CHOOSE LEVEL</label>
-              <select 
-                required 
-                value={formData.level}
-                onChange={(e) => setFormData({...formData, level: e.target.value})}
-              >
-                <option value="">{formData.language ? "Choose Level" : "Pick language first"}</option>
-                <option value="beginner">Beginner (A1/N5)</option>
-                <option value="elementary">Elementary (A2/N4)</option>
-                <option value="intermediate">Intermediate (B1/N3)</option>
-                <option value="advanced">Advanced (B2+/N2+)</option>
-              </select>
+
+            <form onSubmit={handleSubmit} className="registration-form">
+              <div className="form-group">
+                <label>FULL NAME</label>
+                <input 
+                  type="text" 
+                  placeholder="e.g. Priya Sharma" 
+                  required 
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>EMAIL ADDRESS</label>
+                <input 
+                  type="email" 
+                  placeholder="you@example.com" 
+                  required 
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>PHONE NUMBER</label>
+                <input 
+                  type="tel" 
+                  placeholder="10-digit mobile number" 
+                  pattern="[0-9]{10}" 
+                  required 
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                />
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>PICK LANGUAGES</label>
+                  <select 
+                    required 
+                    value={formData.language}
+                    onChange={(e) => setFormData({...formData, language: e.target.value})}
+                  >
+                    <option value="">Pick Languages</option>
+                    <option value="french">French</option>
+                    <option value="german">German</option>
+                    <option value="japanese">Japanese</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>CHOOSE LEVEL</label>
+                  <select 
+                    required 
+                    value={formData.level}
+                    onChange={(e) => setFormData({...formData, level: e.target.value})}
+                  >
+                    <option value="">{formData.language ? "Choose Level" : "Pick language first"}</option>
+                    <option value="beginner">Beginner (A1/N5)</option>
+                    <option value="elementary">Elementary (A2/N4)</option>
+                    <option value="intermediate">Intermediate (B1/N3)</option>
+                    <option value="advanced">Advanced (B2+/N2+)</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" className="submit-btn">
+                Register Now
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+
+              <p className="form-footer">
+                By proceeding, you agree to our Privacy Policy and Terms & Conditions.
+              </p>
+            </form>
+          </>
+        ) : (
+          <div className="success-view" style={{ textAlign: 'center', padding: '20px 0' }}>
+            <div className="success-icon" style={{ 
+              width: 80, height: 80, background: '#10B981', color: '#fff', 
+              borderRadius: '50%', display: 'flex', alignItems: 'center', 
+              justifyContent: 'center', fontSize: 40, margin: '0 auto 24px',
+              boxShadow: '0 10px 25px rgba(16, 185, 129, 0.3)'
+            }}>
+              ✓
             </div>
+            <h2 style={{ fontSize: 32, marginBottom: 16, fontWeight: 900 }}>Success!</h2>
+            <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 32 }}>
+              Your registration has been saved.<br />
+              Our team will contact you shortly.
+            </p>
+            <button 
+              onClick={onClose}
+              className="submit-btn" 
+              style={{ width: 'auto', padding: '14px 40px', margin: '0 auto' }}
+            >
+              Great, Thank You!
+            </button>
           </div>
-
-          <button type="submit" className="submit-btn">
-            Register Now
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
-
-          <p className="form-footer">
-            By proceeding, you agree to our Privacy Policy and Terms & Conditions.
-          </p>
-        </form>
+        )}
       </div>
 
       <style jsx>{`
