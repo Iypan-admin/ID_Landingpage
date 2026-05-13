@@ -106,7 +106,7 @@ export default function ProgramsSection() {
         </div>
 
         {/* Detail card */}
-        <div key={active} className="animate-scale-in" style={{
+        <div key={active} style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48,
           background: "rgba(255,255,255,0.9)", borderRadius: 32,
           border: `1px solid ${p.color}25`,
