@@ -8,6 +8,7 @@ import ProgramModesSection from "@/components/ProgramModesSection";
 import WhyIsmlSection from "@/components/WhyIsmlSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FeeSection from "@/components/FeeSection";
 import FaqSection from "@/components/FaqSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
@@ -39,6 +40,7 @@ export default function Home() {
       
       {/* ── Social Proof & Support ── */}
       <TestimonialsSection />
+      <FeeSection />
       <FaqSection />
       
       <CtaSection onApply={openModal} />
