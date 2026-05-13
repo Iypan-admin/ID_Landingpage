@@ -171,10 +171,10 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
             }}>
               ✓
             </div>
-            <h2 style={{ fontSize: 32, marginBottom: 16, fontWeight: 900 }}>Success!</h2>
+            <h2 style={{ fontSize: 32, marginBottom: 16, fontWeight: 900 }}>Submission Confirmed!</h2>
             <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, marginBottom: 32 }}>
-              Your registration has been saved.<br />
-              Our team will contact you shortly.
+              Your registration is complete.<br />
+              We will get in touch with you soon.
             </p>
             <button 
               onClick={onClose}
