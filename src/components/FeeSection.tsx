@@ -15,7 +15,11 @@ const idFastTrack = [
   { level: "B2 / N2", duration: "6 Months", total: "₹17,670", monthly: "₹2,945" },
 ];
 
-export default function FeeSection() {
+interface FeeSectionProps {
+  onEnrol: () => void;
+}
+
+export default function FeeSection({ onEnrol }: FeeSectionProps) {
   const [mode, setMode] = useState<"standard" | "fasttrack">("standard");
 
   const data = mode === "standard" ? idStandard : idFastTrack;
@@ -138,6 +142,7 @@ export default function FeeSection() {
 
               <div style={{ marginTop: 32 }}>
                 <button 
+                  onClick={onEnrol}
                   className="btn-primary" 
                   style={{ width: "100%", justifyContent: "center", padding: "14px" }}
                 >

@@ -40,7 +40,7 @@ export default function Home() {
       
       {/* ── Social Proof & Support ── */}
       <TestimonialsSection />
-      <FeeSection />
+      <FeeSection onEnrol={openModal} />
       <FaqSection />
       
       <CtaSection onApply={openModal} />
