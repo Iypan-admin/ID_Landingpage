@@ -34,16 +34,16 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: 16, fontWeight: 800, marginBottom: 24 }}>Contact</h4>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12, fontSize: 15, color: "rgba(255,255,255,0.6)" }}>
-              <li>Email: contact@isml.in</li>
-              <li>Phone: +91 98765 43210</li>
-              <li>Location: Chennai, Bangalore, Coimbatore</li>
+              <li>Email: enquiry.isml@gmail.com</li>
+              <li>Phone: 7338881781 / 7338880780</li>
+              <li>Location: 8/3, Athreyapuram 2nd Street, Choolaimedu, Chennai - 600094</li>
             </ul>
           </div>
         </div>
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: 40, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20 }}>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
-            © 2026 ISML — Indian School for Modern Languages. All rights reserved.
+            © 2026 IYPAN Educational Centre Private Limited. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 24, fontSize: 13, color: "rgba(255,255,255,0.4)" }}>
             <span>Privacy Policy</span>
