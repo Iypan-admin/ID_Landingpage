@@ -79,7 +79,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           <>
             <div className="form-header">
               <h2>Registration Form</h2>
-              <p>All fields are required · Takes 60 seconds</p>
+              <p>All fields are required</p>
             </div>
 
             <form onSubmit={handleSubmit} className="registration-form">
