@@ -46,7 +46,10 @@ export default function FaqSection() {
               <div className="q-icon-box">💬</div>
               <h4 style={{ fontSize: 18, fontWeight: 800, color: "#0F172A", marginBottom: 8 }}>Still have questions?</h4>
               <p style={{ fontSize: 14, color: "#64748b", marginBottom: 20 }}>Can't find the answer you're looking for? Reach out to our team.</p>
-              <a href="#footer" className="contact-link">Contact Support</a>
+              <a href="https://wa.me/917338881781" target="_blank" className="contact-link">
+                <span>Contact Support:</span> 
+                <span style={{ color: "#10B981" }}>+91 73388 81781</span>
+              </a>
             </div>
           </div>
 
