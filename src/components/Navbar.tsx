@@ -37,18 +37,12 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
     >
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
-          {/* ISML SVG Logo */}
-          <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-            <rect width="100" height="100" rx="12" fill="white"/>
-            <text x="5" y="25" fill="#003EB3" style={{ fontSize: '24px', fontWeight: 900, fontFamily: 'sans-serif' }}>I</text>
-            <text x="25" y="25" fill="#003EB3" style={{ fontSize: '14px', fontWeight: 800, fontFamily: 'sans-serif' }}>NDIAN</text>
-            <text x="5" y="48" fill="#14B8A6" style={{ fontSize: '24px', fontWeight: 900, fontFamily: 'sans-serif' }}>S</text>
-            <text x="25" y="48" fill="#003EB3" style={{ fontSize: '14px', fontWeight: 800, fontFamily: 'sans-serif' }}>CHOOL FOR</text>
-            <text x="5" y="71" fill="#14B8A6" style={{ fontSize: '24px', fontWeight: 900, fontFamily: 'sans-serif' }}>M</text>
-            <text x="25" y="71" fill="#003EB3" style={{ fontSize: '14px', fontWeight: 800, fontFamily: 'sans-serif' }}>ODERN</text>
-            <text x="5" y="94" fill="#14B8A6" style={{ fontSize: '24px', fontWeight: 900, fontFamily: 'sans-serif' }}>L</text>
-            <text x="25" y="94" fill="#003EB3" style={{ fontSize: '14px', fontWeight: 800, fontFamily: 'sans-serif' }}>ANGUAGES</text>
-          </svg>
+          {/* Real Logo Image */}
+          <img 
+            src="/logo.png" 
+            alt="ISML Logo" 
+            style={{ width: 48, height: 48, borderRadius: 12, objectFit: 'contain' }} 
+          />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 18, fontWeight: 900, color: "#0F172A", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
               Indian School for <br /> Modern Languages
