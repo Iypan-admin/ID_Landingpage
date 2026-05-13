@@ -80,26 +80,26 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
 
           <div className="form-row">
             <div className="form-group">
-              <label>PREFERRED LANGUAGE</label>
+              <label>PICK LANGUAGES</label>
               <select 
                 required 
                 value={formData.language}
                 onChange={(e) => setFormData({...formData, language: e.target.value})}
               >
-                <option value="">Select language</option>
+                <option value="">Pick Languages</option>
                 <option value="french">French</option>
                 <option value="german">German</option>
                 <option value="japanese">Japanese</option>
               </select>
             </div>
             <div className="form-group">
-              <label>PREFERRED LEVEL</label>
+              <label>CHOOSE LEVEL</label>
               <select 
                 required 
                 value={formData.level}
                 onChange={(e) => setFormData({...formData, level: e.target.value})}
               >
-                <option value="">{formData.language ? "Select level" : "Pick language first"}</option>
+                <option value="">{formData.language ? "Choose Level" : "Pick language first"}</option>
                 <option value="beginner">Beginner (A1/N5)</option>
                 <option value="elementary">Elementary (A2/N4)</option>
                 <option value="intermediate">Intermediate (B1/N3)</option>
