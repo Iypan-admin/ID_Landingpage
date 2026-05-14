@@ -37,9 +37,19 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Format date specifically so Google Sheets doesn't convert it to a serial number
+    const formattedDate = new Intl.DateTimeFormat('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    }).format(new Date());
+
     const dataToSave = {
       data: [{
-        Date: new Date().toLocaleString(),
+        Date: formattedDate,
         Name: formData.name,
         Email: formData.email,
         Phone: formData.phone,

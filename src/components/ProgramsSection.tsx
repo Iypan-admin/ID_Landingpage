@@ -45,9 +45,9 @@ const programs = [
   {
     flag: "🇯🇵",
     lang: "Japanese",
-    cert: "JLPT N5 – N1",
+    cert: "JLPT N5 – N2",
     tagline: "Master Japanese. Conquer JLPT.",
-    description: "From hiragana & katakana to kanji mastery — our Japanese immersion program is structured to guide you through JLPT N5 all the way to the prestigious N1 level.",
+    description: "From hiragana & katakana to kanji mastery — our Japanese immersion program is structured to guide you through JLPT N5 all the way to the prestigious N2 level.",
     color: "#0EA5E9",
     gradient: "linear-gradient(135deg,#0EA5E9,#38BDF8)",
     bg: "linear-gradient(135deg,#F0F9FF,#E0F2FE)",

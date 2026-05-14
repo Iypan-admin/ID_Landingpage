@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "What is the difference between ID Regular and ID Fast Track?",
-    a: "ID Regular is a flexible 6-month program with 2 days/week. ID Fast Track is an intensive 2-month training program with 5 days/week (Monday to Friday)."
+    a: "ID Regular is a flexible 6-month program with 2 days/week. ID Fast Track is an intensive 3-month training program with 5 days/week (Monday to Friday)."
   },
   {
     q: "Do I need any prior knowledge of the language?",

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 const programs = [
   { flag: "🇫🇷", name: "French", cert: "DELF Certification", color: "#4F6FE8" },
   { flag: "🇩🇪", name: "German", cert: "Goethe Zertifikat", color: "#7C5CFC" },
-  { flag: "🇯🇵", name: "Japanese", cert: "JLPT N5-N1", color: "#38BDF8" }
+  { flag: "🇯🇵", name: "Japanese", cert: "JLPT N5-N2", color: "#38BDF8" }
 ];
 
 interface HeroSectionProps {

@@ -20,7 +20,7 @@ const modes = [
   },
   {
     title: "ID Fast Track",
-    duration: "2 Months",
+    duration: "3 Months",
     days: "5 Days / Week",
     subtitle: "Intensive Training",
     description: "The ultimate learning experience for those who want to achieve fluency and certification in record time.",

@@ -34,7 +34,7 @@ const languages = [
   {
     code: "JP",
     name: "Japanese",
-    desc: "Navigate the world of tech and tradition. Focused preparation for JLPT N5-N1.",
+    desc: "Navigate the world of tech and tradition. Focused preparation for JLPT N5-N2.",
     color: "#0284C7",
     lightBg: "#F0F9FF",
     border: "rgba(2, 132, 199, 0.15)",
