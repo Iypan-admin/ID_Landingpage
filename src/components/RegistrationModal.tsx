@@ -87,89 +87,114 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
         
         {!submitted ? (
           <>
-            <div className="form-header">
-              <h2>Registration Form</h2>
-              <p>All fields are required</p>
+            <div className="modal-static-top">
+              <div className="form-header">
+                <h2>Registration Form</h2>
+                <p>All fields are required</p>
+              </div>
+
+              <div className="demo-schedule-card">
+                <div className="demo-schedule-title">
+                  <span className="live-dot"></span>
+                  Live Demos Every Week
+                </div>
+                <div className="demo-schedule-grid">
+                  <div className="demo-slot">
+                    <span className="demo-day">SUN (2pm)</span>
+                    <span className="demo-lang">🇫🇷 French</span>
+                  </div>
+                  <div className="demo-slot">
+                    <span className="demo-day">TUE (7pm)</span>
+                    <span className="demo-lang">🇯🇵 Japanese</span>
+                  </div>
+                  <div className="demo-slot">
+                    <span className="demo-day">WED (6pm)</span>
+                    <span className="demo-lang">🇩🇪 German</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="registration-form">
-              <div className="form-group">
-                <label>FULL NAME</label>
-                <input 
-                  type="text" 
-                  placeholder="e.g. Priya Sharma" 
-                  required 
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                />
-              </div>
-
-              <div className="form-group">
-                <label>EMAIL ADDRESS</label>
-                <input 
-                  type="email" 
-                  placeholder="you@example.com" 
-                  required 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                />
-              </div>
-
-              <div className="form-group">
-                <label>PHONE NUMBER</label>
-                <input 
-                  type="tel" 
-                  placeholder="10-digit mobile number" 
-                  pattern="[0-9]{10}" 
-                  required 
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                />
-              </div>
-
-              <div className="form-row">
+            <div className="modal-scrollable-content">
+              <form onSubmit={handleSubmit} className="registration-form">
                 <div className="form-group">
-                  <label>PICK LANGUAGES</label>
-                  <select 
+                  <label>FULL NAME</label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. Priya Sharma" 
                     required 
-                    value={formData.language}
-                    onChange={(e) => setFormData({...formData, language: e.target.value})}
-                  >
-                    <option value="">Pick Languages</option>
-                    <option value="french">French</option>
-                    <option value="german">German</option>
-                    <option value="japanese">Japanese</option>
-                  </select>
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  />
                 </div>
+
                 <div className="form-group">
-                  <label>CHOOSE LEVEL</label>
-                  <select 
+                  <label>EMAIL ADDRESS</label>
+                  <input 
+                    type="email" 
+                    placeholder="you@example.com" 
                     required 
-                    value={formData.level}
-                    onChange={(e) => setFormData({...formData, level: e.target.value})}
-                  >
-                    <option value="">Choose Level</option>
-                    <option value="beginner">Beginner (A1/N5)</option>
-                    <option value="elementary">Elementary (A2/N4)</option>
-                    <option value="intermediate">Intermediate (B1/N3)</option>
-                    <option value="advanced">Advanced (B2+/N2+)</option>
-                  </select>
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  />
                 </div>
-              </div>
 
-              <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 8 }}>
-                <button type="submit" className="submit-btn" style={{ width: '100%', maxWidth: 280 }}>
-                  Register Now
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </button>
-              </div>
+                <div className="form-group">
+                  <label>PHONE NUMBER</label>
+                  <input 
+                    type="tel" 
+                    placeholder="10-digit mobile number" 
+                    pattern="[0-9]{10}" 
+                    required 
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  />
+                </div>
 
-              <p className="form-footer">
-                By proceeding, you agree to our Privacy Policy and Terms & Conditions.
-              </p>
-            </form>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>PICK LANGUAGES</label>
+                    <select 
+                      required 
+                      value={formData.language}
+                      onChange={(e) => setFormData({...formData, language: e.target.value})}
+                    >
+                      <option value="">Pick Languages</option>
+                      <option value="french">French</option>
+                      <option value="german">German</option>
+                      <option value="japanese">Japanese</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label>CHOOSE LEVEL</label>
+                    <select 
+                      required 
+                      value={formData.level}
+                      onChange={(e) => setFormData({...formData, level: e.target.value})}
+                    >
+                      <option value="">Choose Level</option>
+                      <option value="beginner">Beginner (A1/N5)</option>
+                      <option value="elementary">Elementary (A2/N4)</option>
+                      <option value="intermediate">Intermediate (B1/N3)</option>
+                      <option value="advanced">Advanced (B2+/N2+)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 8 }}>
+                  <button type="submit" className="submit-btn" style={{ width: '100%', maxWidth: 280 }}>
+                    Register Now
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <p className="form-footer">
+                  By proceeding, you agree to our Privacy Policy and Terms & Conditions.
+                </p>
+              </form>
+            </div>
           </>
         ) : (
           <div className="success-view" style={{ textAlign: 'center', padding: '20px 0' }}>
@@ -224,6 +249,38 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           color: #fff;
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
           animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          display: flex;
+          flex-direction: column;
+          max-height: 90vh;
+        }
+
+        .modal-static-top {
+          flex-shrink: 0;
+        }
+
+        .modal-scrollable-content {
+          overflow-y: auto;
+          flex: 1;
+          padding-right: 8px;
+          margin-right: -8px;
+        }
+
+        .modal-scrollable-content::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        .modal-scrollable-content::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
+        }
+        
+        .modal-scrollable-content::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 10px;
+        }
+        
+        .modal-scrollable-content::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.3);
         }
 
         .modal-close {
@@ -262,6 +319,63 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
         .form-header p {
           font-size: 14px;
           color: rgba(255, 255, 255, 0.5);
+        }
+
+        .demo-schedule-card {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(79, 111, 232, 0.2);
+          border-radius: 16px;
+          padding: 16px;
+          margin-bottom: 24px;
+        }
+
+        .demo-schedule-title {
+          font-size: 12px;
+          font-weight: 800;
+          color: #10B981;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 12px;
+        }
+
+        .live-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #10B981;
+          box-shadow: 0 0 8px #10B981;
+        }
+
+        .demo-schedule-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+
+        .demo-slot {
+          background: rgba(255, 255, 255, 0.03);
+          padding: 10px;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .demo-day {
+          display: block;
+          font-size: 11px;
+          color: rgba(255, 255, 255, 0.6);
+          margin-bottom: 4px;
+          font-weight: 700;
+        }
+
+        .demo-lang {
+          display: block;
+          font-size: 13px;
+          color: #fff;
+          font-weight: 800;
         }
 
         .enquiry-form {
