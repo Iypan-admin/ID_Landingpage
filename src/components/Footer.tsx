@@ -7,23 +7,32 @@ export default function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 60, marginBottom: 60 }}>
           {/* Brand */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
-              {/* Professional Logo Display */}
-              <img 
-                src="/logo.png" 
-                alt="ISML Logo" 
-                style={{ 
-                  height: 48, 
-                  width: "auto", 
-                  objectFit: "contain",
-                  background: "#fff",
-                  padding: "2px",
-                  borderRadius: "8px"
-                }} 
-              />
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <span style={{ fontSize: 18, fontWeight: 900, color: "#FFFFFF", lineHeight: 1.1 }}>ISML</span>
-                <span style={{ fontSize: 9, fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: "0.05em" }}>INDIAN SCHOOL FOR MODERN LANGUAGES</span>
+            <div style={{ 
+              display: "inline-flex", 
+              alignItems: "center", 
+              marginBottom: 24,
+              background: "#FFFFFF",
+              padding: "16px 20px",
+              borderRadius: "16px",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+            }}>
+              {/* Custom Typographic Logo matching screenshot */}
+              <div style={{ display: "flex", flexDirection: "column", fontFamily: "sans-serif" }}>
+                <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em" }}>
+                  <span style={{ color: "#22D3EE" }}>I</span><span style={{ color: "#1D4ED8" }}>NDIAN</span>
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em" }}>
+                  <span style={{ color: "#22D3EE" }}>S</span><span style={{ color: "#1D4ED8" }}>CHOOL FOR</span>
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em" }}>
+                  <span style={{ color: "#22D3EE" }}>M</span><span style={{ color: "#1D4ED8" }}>ODERN</span>
+                </div>
+                <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em" }}>
+                  <span style={{ color: "#22D3EE" }}>L</span><span style={{ color: "#1D4ED8" }}>ANGUAGES</span>
+                </div>
+                <div style={{ fontSize: 7, fontWeight: 700, color: "#1D4ED8", marginTop: 4, letterSpacing: "0.05em" }}>
+                  IYPAN Educational Centre Pvt.Ltd
+                </div>
               </div>
             </div>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, maxWidth: 320 }}>

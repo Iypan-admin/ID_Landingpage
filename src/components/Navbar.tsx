@@ -37,22 +37,24 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
       }}
     >
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
-          {/* Professional Logo Display */}
-          <img 
-            src="/logo.png" 
-            alt="ISML Logo" 
-            style={{ 
-              height: scrolled ? 44 : 50, 
-              width: "auto", 
-              transition: "all 0.4s ease",
-              objectFit: "contain"
-            }} 
-          />
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 18, fontWeight: 900, color: "#0F172A", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
-              Indian School for <br /> Modern Languages
-            </span>
+        <a href="#" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          {/* Custom Typographic Logo matching screenshot */}
+          <div style={{ display: "flex", flexDirection: "column", fontFamily: "sans-serif" }}>
+            <div style={{ fontSize: scrolled ? 16 : 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em", transition: "all 0.3s" }}>
+              <span style={{ color: "#22D3EE" }}>I</span><span style={{ color: "#1D4ED8" }}>NDIAN</span>
+            </div>
+            <div style={{ fontSize: scrolled ? 16 : 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em", transition: "all 0.3s" }}>
+              <span style={{ color: "#22D3EE" }}>S</span><span style={{ color: "#1D4ED8" }}>CHOOL FOR</span>
+            </div>
+            <div style={{ fontSize: scrolled ? 16 : 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em", transition: "all 0.3s" }}>
+              <span style={{ color: "#22D3EE" }}>M</span><span style={{ color: "#1D4ED8" }}>ODERN</span>
+            </div>
+            <div style={{ fontSize: scrolled ? 16 : 18, fontWeight: 900, lineHeight: 1.1, letterSpacing: "0.02em", transition: "all 0.3s" }}>
+              <span style={{ color: "#22D3EE" }}>L</span><span style={{ color: "#1D4ED8" }}>ANGUAGES</span>
+            </div>
+            <div style={{ fontSize: 7, fontWeight: 700, color: "#1D4ED8", marginTop: 4, letterSpacing: "0.05em" }}>
+              IYPAN Educational Centre Pvt.Ltd
+            </div>
           </div>
         </a>
 
