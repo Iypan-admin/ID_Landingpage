@@ -53,9 +53,6 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
             <span style={{ fontSize: 18, fontWeight: 900, color: "#0F172A", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
               Indian School for <br /> Modern Languages
             </span>
-            <span style={{ fontSize: 10, fontWeight: 700, color: "#4F6FE8", letterSpacing: "0.05em", marginTop: 2 }}>
-              INTERNATIONAL DIPLOMA (ID)
-            </span>
           </div>
         </a>
 
