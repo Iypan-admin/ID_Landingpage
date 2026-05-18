@@ -21,6 +21,19 @@ export default function Home() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const ref = searchParams.get("ref");
+      const ame = searchParams.get("ame");
+      const ap = searchParams.get("ap");
+
+      if (ref) sessionStorage.setItem("isml_ref", ref);
+      if (ame) sessionStorage.setItem("isml_ame", ame);
+      if (ap) sessionStorage.setItem("isml_ap", ap);
+    }
+  }, []);
+
 
 
   return (

@@ -8,6 +8,8 @@ interface RegistrationModalProps {
 
 export default function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,10 +18,14 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
     level: ""
   });
 
-  // Reset submitted state when modal closes
+  // Reset submitted state and error messages when modal closes
   useEffect(() => {
     if (!isOpen) {
-      setTimeout(() => setSubmitted(false), 300);
+      setTimeout(() => {
+        setSubmitted(false);
+        setErrorMessage("");
+        setIsSubmitting(false);
+      }, 300);
     }
   }, [isOpen]);
 
@@ -36,8 +42,15 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
     
-    // Format date specifically so Google Sheets doesn't convert it to a serial number
+    if (formData.phone.length !== 10) {
+      setErrorMessage("⚠️ Phone number must be exactly 10 digits!");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
     const formattedDate = new Intl.DateTimeFormat('en-IN', {
       day: '2-digit',
       month: 'short',
@@ -47,36 +60,52 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
       hour12: true
     }).format(new Date());
 
-    const dataToSave = {
-      data: [{
-        Date: formattedDate,
-        Name: formData.name,
-        Email: formData.email,
-        Phone: formData.phone,
-        Language: formData.language,
-        Level: formData.level
-      }]
-    };
+    let affiliateCode = "";
+    let ameCode = "";
+    let apCode = "";
+    if (typeof window !== "undefined") {
+      affiliateCode = sessionStorage.getItem("isml_ref") || "";
+      ameCode = sessionStorage.getItem("isml_ame") || "";
+      apCode = sessionStorage.getItem("isml_ap") || "";
+    }
 
     try {
-      const response = await fetch('https://sheetdb.io/api/v1/y4odbljzg3dxt', {
+      const response = await fetch('/api/register', {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(dataToSave)
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          language: formData.language,
+          level: formData.level,
+          date: formattedDate,
+          mode: "ID Fast Track",
+          affiliate_code: affiliateCode,
+          ame_code: ameCode,
+          ap_code: apCode
+        })
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", language: "", level: "" });
       } else {
-        throw new Error('Failed to save data');
+        if (result.error === "already-exists") {
+          setErrorMessage("⚠️ Already registered! This email is already enrolled.");
+        } else {
+          throw new Error(result.error || 'Failed to save data');
+        }
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong. Please try again.");
+      console.error("Registration Error:", error);
+      setErrorMessage("⚠️ Something went wrong. Please check your details and try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -117,6 +146,24 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
 
             <div className="modal-scrollable-content">
               <form onSubmit={handleSubmit} className="registration-form">
+                
+                {errorMessage && (
+                  <div style={{
+                    background: "rgba(239, 68, 68, 0.08)",
+                    border: "1px solid rgba(239, 68, 68, 0.2)",
+                    color: "#EF4444",
+                    borderRadius: 12,
+                    padding: "12px 16px",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    marginBottom: 20,
+                    textAlign: "center",
+                    lineHeight: "1.4"
+                  }}>
+                    {errorMessage}
+                  </div>
+                )}
+
                 <div className="form-group">
                   <label>FULL NAME</label>
                   <input 
@@ -144,10 +191,14 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
                   <input 
                     type="tel" 
                     placeholder="10-digit mobile number" 
-                    pattern="[0-9]{10}" 
                     required 
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, ""); // Filter non-numeric characters entirely
+                      if (val.length <= 10) {
+                        setFormData({...formData, phone: val});
+                      }
+                    }}
                   />
                 </div>
 
@@ -182,11 +233,41 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 8 }}>
-                  <button type="submit" className="submit-btn" style={{ width: '100%', maxWidth: 280 }}>
-                    Register Now
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
+                  <button 
+                    type="submit" 
+                    className="submit-btn" 
+                    disabled={isSubmitting}
+                    style={{ 
+                      width: '100%', 
+                      maxWidth: 280,
+                      opacity: isSubmitting ? 0.7 : 1,
+                      cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 8
+                    }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div style={{
+                          width: 16,
+                          height: 16,
+                          border: '2px solid rgba(255, 255, 255, 0.3)',
+                          borderTopColor: '#ffffff',
+                          borderRadius: '50%',
+                          animation: 'spin 1s linear infinite'
+                        }} />
+                        <span>Registering...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Register Now</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </>
+                    )}
                   </button>
                 </div>
 
@@ -458,6 +539,10 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           color: rgba(255, 255, 255, 0.4);
           text-align: center;
           line-height: 1.5;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
         }
 
         @keyframes fadeIn {
