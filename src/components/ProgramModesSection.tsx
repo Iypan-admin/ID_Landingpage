@@ -26,7 +26,6 @@ const modes = [
     description: "The ultimate learning experience for those who want to achieve fluency and certification in record time.",
     features: [
       "Monday to Friday classes",
-      "Weekly 5 days of class",
       "Intensive fast-track training",
       "Faster certification path",
       "Daily speaking practice"

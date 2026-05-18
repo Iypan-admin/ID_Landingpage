@@ -176,7 +176,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
                       <option value="beginner">Beginner (A1/N5)</option>
                       <option value="elementary">Elementary (A2/N4)</option>
                       <option value="intermediate">Intermediate (B1/N3)</option>
-                      <option value="advanced">Advanced (B2+/N2+)</option>
+                      <option value="advanced">Advanced (B2/N2)</option>
                     </select>
                   </div>
                 </div>

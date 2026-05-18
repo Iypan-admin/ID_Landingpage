@@ -4,7 +4,7 @@ const languages = [
   {
     code: "FR",
     name: "French",
-    desc: "Master the language of diplomacy and culture. Prep for DELF/DALF certifications.",
+    desc: "Master the language of diplomacy and culture. Prep for DELF/PRIM Certification.",
     color: "#4F6FE8",
     lightBg: "#F0F4FF",
     border: "rgba(79, 111, 232, 0.15)",
@@ -19,7 +19,7 @@ const languages = [
   {
     code: "GR",
     name: "German",
-    desc: "Unlock opportunities in Europe's economic powerhouse. Prep for Goethe-Zertifikat.",
+    desc: "Unlock opportunities in Europe's economic powerhouse. Prep for Goethe/ÖSD/TELC Zertifikat.",
     color: "#7C5CFC",
     lightBg: "#F5F3FF",
     border: "rgba(124, 92, 252, 0.15)",
@@ -34,7 +34,7 @@ const languages = [
   {
     code: "JP",
     name: "Japanese",
-    desc: "Navigate the world of tech and tradition. Focused preparation for JLPT N5-N2.",
+    desc: "Navigate the world of tech and tradition. Focused preparation for JLPT/NCT.",
     color: "#0284C7",
     lightBg: "#F0F9FF",
     border: "rgba(2, 132, 199, 0.15)",

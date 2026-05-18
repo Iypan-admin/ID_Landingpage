@@ -2,9 +2,9 @@
 import { useEffect, useRef } from "react";
 
 const programs = [
-  { flag: "🇫🇷", name: "French", cert: "DELF Certification", color: "#4F6FE8" },
-  { flag: "🇩🇪", name: "German", cert: "Goethe Zertifikat", color: "#7C5CFC" },
-  { flag: "🇯🇵", name: "Japanese", cert: "JLPT N5-N2", color: "#38BDF8" }
+  { flag: "🇫🇷", name: "French", cert: "DELF/PRIM Certification", color: "#4F6FE8" },
+  { flag: "🇩🇪", name: "German", cert: "Goethe/ÖSD/TELC Zertifikat", color: "#7C5CFC" },
+  { flag: "🇯🇵", name: "Japanese", cert: "JLPT/NCT", color: "#38BDF8" }
 ];
 
 interface HeroSectionProps {
@@ -26,7 +26,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
       className="reveal-child"
       style={{
         minHeight: "100vh",
-        paddingTop: 100,
+        paddingTop: 140,
         paddingBottom: 80,
         background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFF 35%, #F5F3FF 65%, #F0F9FF 100%)",
         position: "relative",
@@ -305,7 +305,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
             grid-template-columns: 1fr;
             gap: 48px;
             text-align: center;
-            padding-top: 40px;
+            padding-top: 80px;
           }
 
           .hero-text-content {
